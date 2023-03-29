@@ -1,0 +1,84 @@
+﻿@*Define the model*@
+@model IEnumerable<Apartment>
+
+
+@*Define C# Code: View Data and C# Properties*@
+
+@{
+    ViewData["Title"] = "List of Apartments";
+}
+
+@*Write the C# HTML Code*@
+<div class = "row">
+    <div class = "col-md-8 offset-md-2">
+        <table class="table">
+            <thead>
+                <tr class="text-center">
+                    <th>@Html.DisplayNameFor(model => model.Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.AptNumber)</th>
+                    <th>@Html.DisplayNameFor(model => model.Bedrooms)</th>
+                    <th>@Html.DisplayNameFor(model => model.Bathrooms)</th>
+                    <th>@Html.DisplayNameFor(model => model.Area)</th>
+                    <th>@Html.DisplayNameFor(model => model.Price)</th>
+                    <th>@Html.DisplayNameFor(model => model.Utilities)</th>
+                    <th>@Html.DisplayNameFor(model => model.Features)</th>
+                    <th>@Html.DisplayNameFor(model => model.StartDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.EndDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.Rented)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AptNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Bedrooms)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Bathrooms)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Utilities)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Features)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rented)
+                        </td>
+
+                        <td>
+                            <a class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i> Edit</a>
+                            <a class="btn btn-outline-info"><i class="bi bi-eye"></i> Details</a>
+                            <a class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            
+
+        </table>
+
+
+    </div>
+
+</div>
