@@ -88,24 +88,16 @@ namespace RentalManagement_WebSite_V1.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var tenantDetails = await _context.Tenants.FirstOrDefaultAsync(n => n.TenantId == id);
-
-            if (tenantDetails == null)
-            {
-                return View("Not Found");
-            }
-            else
-            {
-                return View(tenantDetails);
-            }
+            return View(tenantDetails);
         }
 
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var tenantDetails = await _context.Tenants.FirstOrDefaultAsync(n => n.TenantId == id);
-            //if (tenantDetails == null) return View("Not Found");
+            if (tenantDetails == null) return View("Not Found");
 
-            _context.Remove(id);
+            _context.Remove(tenantDetails);
             _context.SaveChanges();
             return RedirectToAction(nameof(Index));
         }

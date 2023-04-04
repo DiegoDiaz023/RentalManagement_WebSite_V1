@@ -19,7 +19,7 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-12">
-                        <div class="card-header text-white bg-info">
+                        <div class="card-header">
                             <p class="card-text">
                                 <h5 class="card-title">
                                     @item.AptNumber
@@ -45,15 +45,15 @@
                                 <b>Status: </b>
                                 @if (DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
                                 {
-                                    <span class="badge bg-success text-white">AVAILABLE</span>
+                                    <span class="badge ">AVAILABLE</span>
                                 }
                                 else if (DateTime.Now > item.EndDate)
                                 {
-                                    <span class="badge bg-danger text-white">RENTED</span>
+                                    <span class="badge ">RENTED</span>
                                 }
                                 else
                                 {
-                                    <span class="badge bg-primary text-white">UPCOMING</span>
+                                    <span class="badge ">AVAILABLE</span>
                                 }
                             </p>
 
@@ -65,11 +65,11 @@
                                 <a class="btn btn-outline-primary float-right" asp-action="Details" asp-route-id="@item.ApartmentId">
                                     <i class="bi bi-eye-fill"></i> Show Details
                                 </a>
-                                <a class="btn btn-success text-white @((DateTime.Now > item.EndDate) ? "disabled" : "")" 
-                                   asp-controller="Orders" 
-                                   asp-action="AddItemToShoppingCart" 
+                                <a class="btn @((DateTime.Now > item.EndDate) ? "disabled" : "")" 
+                                   asp-controller="" 
+                                   asp-action="" 
                                    asp-route-id="@item.ApartmentId">
-                                <i class="bi bi-cart-plus"></i> Rent the Apartment (Price @item.Price.ToString("c"))</a>
+                                <i class="bi"></i> Rent it! (Price @item.Price.ToString("c"))</a>
                             </p>
                         </div>
                     </div>

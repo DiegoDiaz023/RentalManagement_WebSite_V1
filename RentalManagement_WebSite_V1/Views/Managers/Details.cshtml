@@ -1,14 +1,13 @@
-﻿@model RentalManagement_WebSite_V1.Models.Tenant
+﻿@model RentalManagement_WebSite_V1.Models.Manager
 
 @{
-    ViewData["Title"] = "Delete Tenant";
+    ViewData["Title"] = "Manager Details";
 }
 
-<h1>Delete</h1>
+<h1>Details for @Model.FirstName @Model.LastName</h1>
 
-<h3>Are you sure you want to delete @Model.FirstName @Model.LastName</h3>
 <div>
-    <h4>Tenant</h4>
+    <h4>Manager</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -48,10 +47,8 @@
             @Html.DisplayFor(model => model.Password)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="TenantId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ManagerId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
 </div>
